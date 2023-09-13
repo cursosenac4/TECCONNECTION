@@ -1,0 +1,102 @@
+/* Estilo para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #b0cfce;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para o formulário */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para rótulos e campos de entrada */
+label, input, select {
+    display: block;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+/* Estilo para o botão de envio */
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para mensagens de sucesso ou erro */
+.success-message, .error-message {
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.success-message {
+    color: #009900;
+}
+
+.error-message {
+    color: #ff0000;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* Estilo para a barra de navegação lateral */
+/* Estilize a barra de navegação lateral */
+.sidebar {
+    background-color: #91c1c7; /* Cor de fundo da barra lateral */
+    width: 250px; /* Largura da barra lateral */
+    position: fixed; /* Mantém a barra lateral fixa na página */
+    height: 100%; /* Altura total da barra lateral */
+    top: 0; /* Alinha a barra lateral ao topo da página */
+    left: 0; /* Alinha a barra lateral à esquerda da página */
+    padding-top: 20px; /* Espaçamento superior */
+}
+
+/* Estilize os links na barra lateral */
+.sidebar a {
+    padding: 15px 25px; /* Espaçamento interno dos links */
+    text-decoration: none; /* Remove sublinhado nos links */
+    color: #fff; /* Cor do texto dos links */
+    display: block; /* Transforma os links em blocos */
+}
+
+/* Estilize os links quando passar o mouse por cima */
+.sidebar a:hover {
+    background-color: #78e2f5; /* Cor de fundo quando hover */
+}
+
+/* Estilize o título da barra lateral */
+.sidebar h1 {
+    color: #fff; /* Cor do título */
+    text-align: center; /* Centraliza o texto */
+    padding: 20px 0; /* Espaçamento interno superior e inferior */
+    margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+/* Estilize um botão de logout na parte inferior da barra lateral */
+.logout-button {
+    margin-top: auto; /* Empurra o botão para o final da barra lateral */
+    display: block; /* Transforma o botão em bloco */
+    text-align: center; /* Centraliza o texto do botão */
+    padding: 15px 0; /* Espaçamento interno superior e inferior do botão */
+    background-color: #f00; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    text-decoration: none; /* Remove sublinhado */
+}

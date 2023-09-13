@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner em Movimento</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="banner-container">
+        <div class="banner">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati nesciunt exercitationem esse, eaque eos, doloremque ipsum sit deserunt asperiores repellendus porro ea possimus unde molestias beatae doloribus consectetur libero aspernatur?</p>
+        </div>
+        <div class="banner2">
+            <p>adipisicing elit. Minus veritatis consequatur quidem ut!</p>
+        </div>
+    </div>
+    <div class="form-container">
+        <form id="registro-form">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome">
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+    <div class="vacancy-container">
+        <p>Vagas disponíveis: <span id="vagas-cont">20</span></p>
+    </div>
+    <script src="script.js"></script> 
+
+    <!-- ********************************************************** -->
+
+
+    <!--
+    <div id="countdown"></div>
+
+    <script>
+        // Data de término da inscrição do curso 
+        const endDate = new Date("2023-12-31T23:59:59Z"); // Incluir o fuso horário Z (UTC)
+
+        function updateCountdown() {
+            const now = new Date();
+            const timeDifference = endDate - now;
+
+            if (timeDifference <= 0) {
+                document.getElementById("countdown").innerHTML = "Inscrições encerradas!";
+            } else {
+                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+                const milliseconds = timeDifference % 1000;
+
+                const countdownString = `${days} dias, ${hours} : ${minutes} : ${seconds} : ${milliseconds}`;
+                document.getElementById("countdown").innerHTML = countdownString;
+            }
+        }
+
+        // Atualize o contador a cada 1 millissegundo
+        setInterval(updateCountdown, 1);
+        
+        // Chame a função de atualização imediatamente para evitar um atraso inicial
+        updateCountdown();
+    </script>   -->
+    <!--<div id="ContagemRegressiva"></div>
+    <script src="../js/script_cronometro.js" ></script> -->
+    
+
+</body>
+</html>

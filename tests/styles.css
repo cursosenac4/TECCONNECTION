@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.banner-container {
+    background-color: #06D4D9;
+    border: solid;
+    position: relative;
+    overflow: hidden;
+    height: 50px; /* Ajuste a altura desejada para o seu banner */
+    width: 100%;
+}
+
+/* BANNER 1 */
+.banner {
+    /*border: solid;*/
+    position: relative;
+    top: 0;
+    left: 100%; /* Começa fora da tela à direita */
+    white-space: nowrap;
+    animation: moveBanner 35s linear infinite; /* Ajuste a duração desejada da animação */
+    width: 100%;
+}
+
+@keyframes moveBanner {
+    0% {
+        transform: translateX(0%); /* Começa fora da tela à direita */
+    }
+    100% {
+        transform: translateX(-200%); /* Move-se completamente à esquerda */
+    }
+}
+
+/* BANNER 2 */
+.banner2 {
+    /*border: solid;*/
+    position: relative;
+    top: 0;
+    left: 100%; /* Começa fora da tela à direita */
+    white-space: nowrap;
+    animation: moveBanner2 35s linear infinite; /* Ajuste a duração desejada da animação */
+    width: 100%;
+}
+
+@keyframes moveBanner2 {
+    0% {
+        transform: translateX(0%); /* Começa fora da tela à direita */
+    }
+    100% {
+        transform: translateX(-200%); /* Move-se completamente à esquerda */
+    }
+}
+
+p {
+    font-size: 20px;
+    padding: 10px;
+    background-color: #06D4D9;
+    color: black;
+    margin: 0;
+}

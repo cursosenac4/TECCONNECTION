@@ -1,0 +1,39 @@
+DELIMITER $$
+
+CREATE TRIGGER increment_vagas_disponiveis
+AFTER UPDATE ON inscritos
+FOR EACH ROW
+BEGIN
+  -- Verifica se a coluna `deleted_at` foi atualizada para um valor que não seja NULL
+  IF NEW.deleted_at IS NOT NULL THEN
+    -- Verifica se a quantidade de vagas disponíveis é menor ou igual a 19
+    IF (SELECT vagas_disponiveis FROM Cursos WHERE id_curso = NEW.id_curso) <= 19 THEN
+      -- Incrementa a quantidade de vagas disponíveis
+      UPDATE Cursos
+      SET vagas_disponiveis = vagas_disponiveis + 1
+      WHERE id_curso = NEW.id_curso;
+    END IF;
+  END IF;
+END$$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE TRIGGER decrement_vagas_disponiveis
+AFTER UPDATE OR INSERT ON inscritos
+FOR EACH ROW
+BEGIN
+  -- Verifica se a coluna `deleted_at` foi atualizada para um valor que não seja NULL
+  IF NEW.deleted_at IS NULL THEN
+    -- Verifica se a quantidade de vagas disponíveis é menor ou igual a 19
+    IF (SELECT vagas_disponiveis FROM Cursos WHERE id_curso = NEW.id_curso) >= 1 THEN
+      -- Decrementa a quantidade de vagas disponíveis
+      UPDATE Cursos
+      SET vagas_disponiveis = vagas_disponiveis - 1
+      WHERE id_curso = NEW.id_curso;
+    END IF;
+  END IF;
+END$$
+
+DELIMITER ;

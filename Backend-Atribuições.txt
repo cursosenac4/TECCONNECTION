@@ -1,0 +1,116 @@
+Database 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Tabelas(Cursos, Inscritos)
+
+
+1 aluno pode ser Inscrito em vários cursos distintos desde que seja analizado a data & hora inicio/fim
+
+1- Cursos
+Colunas:
+
+id_curso (smallint, pk, a_i)
+nome (varchar(255))              
+descricao (text)
+url_img (text)
+data (date)       -> dia do evento;
+prazo_de_inscricao (date)
+hora_inicio (time)
+hora_fim (time)
+num_vagas (smallint)
+vagas_disponiveis (smallint);
+
+
+
+2- Inscritos
+Colunas:
+
+id_inscrito(int, pk, a_i) //matricula   { pk }  uma pessoa so pode se inscrever uma única vez no mesmo curso;
+nome_completo(varchar(255))
+id_curso(int) -> FK Cursos(id_curso)             -> registrado automagicamente na inscrição
+created_at(NOW())                                -> registrado automagicamente na inscrição
+deleted_at(date, nullable) -> on delete = NOW()  -> registrado automagicamente na exclusão de uma matricula (BACK-END-ONLY);
+
+
+
+PHP
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Admin - (CMS)
+
+METHODS:                            OPCIONAL
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+inserirUmNovoCurso($form_campos: Array) : Boolean
+{ 
+    TODO:
+    **Inserir um novo Curso
+    return true;
+}
+
+
+                                    PRECISA
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+updateInfoIncriçao($form_campos: Array) : Object || Boolean
+{
+    TODO:
+    ** atualizar informaçoes no banco;
+    return Object;
+}
+
+
+                                    PRECISA
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nova_inscrição( $form_campos: Array) : Boolean
+{
+    TODO:
+    ** FUNÇÃO: getNumVagas();
+    ** somente inserção dos dados no banco; //se houverem vagas
+    ** FUNÇÃO: decrementVagasDisponìveis($id_curso);
+    return true || false;
+}
+
+
+Métodos Auxiliares:
+getNumVagas($id_curso: Integer)
+{
+    TODO: 
+    **visualizar numero de vagas disponiveis; //pesquisar pelo id_curso
+    return num_vagas;
+}
+
+
+decrementVagasDisponìveis($id_curso: Integer) : Boolean
+{
+    TODO:
+    ** diminuir em 1 o numero de vagas disponíveis;
+    return true || false;
+}
+
+                                    PRECISA
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+getInscritos(): Object || Boolean
+{
+    TODO: 
+    ** join Inscritos + cursos ( Unir tabelas );
+    ** visualizar inscritos nos cursos com todos os dados (Agrupados por Curso);
+    return Object(resultado da consulta); OU false
+}
+
+
+                                    PRECISA
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+removerInscrição($id_inscrito: Integer): Boolean
+{
+    TODO:
+    **inserir data: NOW() no campo deleted_at;
+    **incrementar em 1 o número de vagas disponiveis; funçao->incrementVagasDisponìveis($id_curso);
+    return true || false;
+}
+
+
+Métodos Auxiliares:
+incrementVagasDisponìveis($id_curso: Integer): Boolean
+{
+    TODO:
+    ** aumentar em 1 o numero de vagas disponíveis; //somente em caso de excluir uma matricula!
+    return true || false;
+}
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

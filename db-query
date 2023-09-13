@@ -1,0 +1,22 @@
+alter table Cursos_senac add codigo varchar(255);
+
+insert into Cursos_senac (nome, codigo) values ('Técnico em Administração','153'),
+('Técnico em Logística','154'),
+('Técnico em Recursos Humanos','155'),
+('Técnico em Segurança do Trabalho','121'),
+('Técnico em Logística','42'),
+('Técnico em Segurança do Trabalho','211'),
+('Libras Básico','177'),
+('Recepcionista','128')
+
+
+
+CREATE TABLE `Inscritos` (
+  `id_inscrito` smallint NOT NULL,
+  `nome_completo` varchar(255) NOT NULL,
+  `id_curso` smallint(6) NOT NULL,
+  `id_curso_senac` smallint NOT NULL, -- Corrigi o nome da coluna e adicionei a palavra NOT NULL
+  `created_at` datetime DEFAULT current_timestamp(),
+  `deleted_at` date DEFAULT NULL,
+  CONSTRAINT fk_curso_senac FOREIGN KEY (`id_curso_senac`) REFERENCES `Cursos_senac`(`id_curso_senac`)
+);
